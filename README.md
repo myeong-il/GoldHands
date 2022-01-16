@@ -23,3 +23,9 @@
   + 단순한 스케치를 통한 이미지 제작으로 사용자들의 흥미 유발 가능
   + 몽타주를 얼굴이미지로 변환하여 범죄 예방 효과 기대
   + 성형수술과 같은 가상 얼굴 이미지에 대한 산업 분야의 활용 기대
+
+
++ 실행화면
+![시연1](https://user-images.githubusercontent.com/24438668/149650909-98af81ac-5d1f-4f46-940f-a062863f51d8.png)
+![시연2](https://user-images.githubusercontent.com/24438668/149650916-cb6d46b9-01cf-4f4e-870e-886cc651a1cf.png)
+
