@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width-device-width", initial-scale=1.0"/>
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="-1">
+        <title>Gold hands</title>
+        <link rel="shortcut icon" href="favicon.ico" type="image/ico"/>
+        <link href="{{url_for('static', filename='css/main_style.css')}}" rel="stylesheet">
+    </head>
+
+    <body>
+        
+        <div class="field">
+            <form id = "myForm" action="{{ url_for('predict')}}" method="POST" enctype="multipart/form-data">
+                <center><canvas id = "draw_canvas" width = 480 height = 520></canvas> 
+                     
+                    <br>
+                    <br>      
+                    <div class = 'options'> 
+                        <select id = 'gender', onchange = "getSelectGenderValue();">
+                            <option value="">Select Gender</option>
+                            <option value="0">Male</option>
+                            <option value="1">Female</option>
+                        </select>
+                        <select id = 'glasses', onchange = "getSelectGlassesValue();">
+                            <option value="">Select glasses</option>
+                            <option value="0">Yes</option>
+                            <option value="1">No</option>
+                        </select>
+                        <select id = 'hair_color', onchange = "getSelectHairValue();">
+                            <option value="">Select hair color</option>
+                            <option value="0">Black</option>
+                            <option value="1">Non-black</option>
+                        </select>
+                        <select id = 'skin_color', onchange = "getSelectSkinValue();">
+                            <option value="">Select skin color</option>
+                            <option value="0">Bright</option>
+                            <option value="1">Dark</option>
+                        </select>
+                    </div>
+                
+                <br>
+                <div>    
+                    <input type="hidden" id = 'url' name="url" value="">
+                    <input type="hidden" id = 'sex' name = "sex" value="">
+                    <input type="hidden" id = 'glass' name = "glass" value="">
+                    <input type="hidden" id = 'hair' name = "hair" value="">
+                    <input type="hidden" id = 'skin' name = "skin" value="">
+                    <input type="submit" id = 'predict' value="Process" class = "pro_button" onclick="return toDataURL();">
+                </div>
+                </center>
+                <img id="myImage" class = "imgsave" width = "480" height = '520'>
+            </form>
+            <br>
+            <br>
+            <div class = "tools">
+                <label for="real-input">File Upload</label>
+                <input type="file" id="real-input">
+
+                <button onClick = "undo_last()" type="button" class="button">Undo</button>
+                <button onClick = "clear_canvas()" type="button" class="button">Clear</button>
+
+                <div onClick = "change_color(this)" class="color-field" style="background: black;"></div>
+                <div onClick = "change_color(this)" class="color-field" style="background: white;"></div>
+
+                <input onInput = "draw_color = this.value" type="color" class="color-picker">
+                <input onInput = "draw_width = this.value" type="range" min="1" max="100" class="pen-range">
+              
+                
+            </div>
+       
+        </div>
+        <div class="loader"  id = "loader" style="display:none;">
+            <img class = "loading-image" id="loading-image" src="{{url_for('static', filename='image/Loading-bar2.gif')}}" />
+            <h2 class = "loading-text">이미지 생성중입니다. 잠시만 기다려주세요.</h2>
+            <h2 class = "Timer" id = "Timer"></h2>
+        </div>
+    </div>
+    </body>
+    
+    <script type="text/javascript" src="{{url_for('static', filename='js/canvas_js.js')}}"></script>
+</html>

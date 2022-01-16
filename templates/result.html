@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Canvas Example</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
+    <link href="{{url_for('static', filename='css/result-style.css')}}" rel="stylesheet">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+</head>
+
+<body>
+    <center>
+    <div class="results">
+        {% if True %}
+        <img id="prdictImage" class = "img_result" src = "{{ url_for('static', filename=image_file) }}">
+        {% endif %}
+    </div>
+    <div class = "tools">
+        <input type="button" value="BACK" class = "back_button" onClick="history.go(-1)">
+        <a href =  "{{ url_for('static', filename=image_file) }}" download><button class = "back_button">Image Save</button></a>
+    </div>
+    </center>
+</body>
+
+</html>
